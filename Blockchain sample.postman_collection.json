@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "e8b780de-559d-45c9-8008-7796c1688cee",
+		"name": "Blockchain sample",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RegisterNode",
+			"item": [
+				{
+					"name": "Register node 2 on node 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"networkNode\": \"http://localhost:3002\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/nodes/register-and-broadcast",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"nodes",
+								"register-and-broadcast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register node 3 on node 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"networkNode\": \"http://localhost:3003\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/nodes/register-and-broadcast",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"nodes",
+								"register-and-broadcast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register node 4 on node 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"networkNode\": \"http://localhost:3004\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/nodes/register-and-broadcast",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"nodes",
+								"register-and-broadcast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register node 5 on node 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"networkNode\": \"http://localhost:3005\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3001/nodes/register-and-broadcast",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"nodes",
+								"register-and-broadcast"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "GET blockchain (node 1)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/blockchain/consensus",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"blockchain",
+						"consensus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new Transaction (node 1)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 0.0976,\n    \"sender\": \"JOHN2\",\n    \"recipient\": \"JANE3\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/blockchain/transaction/broadcast",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"blockchain",
+						"transaction",
+						"broadcast"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mine a new block (node 1)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/blockchain/mine",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"blockchain",
+						"mine"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

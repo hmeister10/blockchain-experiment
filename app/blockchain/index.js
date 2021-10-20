@@ -5,9 +5,8 @@ const { uuid } = require('uuidv4');
 function Blockchain() {
 	this.chain = [];
 	this.pendingTransactions = [];
-
-	// this.currentNodeUrl = currentNodeUrl;
-	// this.networkNodes = [];
+	this.currentNodeUrl = currentNodeUrl;
+	this.networkNodes = [];
 
  // Genesis Block
 	this.createNewBlock(100, '0', '0');
@@ -77,27 +76,40 @@ Blockchain.prototype.proofOfWork = function(previousBlockHash, currentBlockData)
 
 
 
-// Blockchain.prototype.chainIsValid = function(blockchain) {
-// 	let validChain = true;
+Blockchain.prototype.chainIsValid = function(blockchain) {
+	let validChain = true;
 
-// 	for (var i = 1; i < blockchain.length; i++) {
-// 		const currentBlock = blockchain[i];
-// 		const prevBlock = blockchain[i - 1];
-// 		const blockHash = this.hashBlock(prevBlock['hash'], { transactions: currentBlock['transactions'], index: currentBlock['index'] }, currentBlock['nonce']);
-// 		if (blockHash.substring(0, 4) !== '0000') validChain = false;
-// 		if (currentBlock['previousBlockHash'] !== prevBlock['hash']) validChain = false;
-// 	};
+	// check everything after the Genesis Block
+	for (var i = 1; i < blockchain.length; i++) {
+		const currentBlock = blockchain[i];
+		const prevBlock = blockchain[i - 1];
 
-// 	const genesisBlock = blockchain[0];
-// 	const correctNonce = genesisBlock['nonce'] === 100;
-// 	const correctPreviousBlockHash = genesisBlock['previousBlockHash'] === '0';
-// 	const correctHash = genesisBlock['hash'] === '0';
-// 	const correctTransactions = genesisBlock['transactions'].length === 0;
+		// Check if each block has a valid hash, i.e. starts with 0000
+		const blockHash = this.hashBlock(
+				prevBlock['hash'], 
+				{ 
+					transactions: currentBlock['transactions'], 
+					index: currentBlock['index'] 
+				}, 
+				currentBlock['nonce']
+			);
+		if (blockHash.substring(0, 4) !== '0000') validChain = false;
 
-// 	if (!correctNonce || !correctPreviousBlockHash || !correctHash || !correctTransactions) validChain = false;
+		// check each block has the previousHash connected correctly
+		if (currentBlock['previousBlockHash'] !== prevBlock['hash']) validChain = false;
+	};
 
-// 	return validChain;
-// };
+	// Validate the Genesis Block
+	const genesisBlock = blockchain[0];
+	const correctNonce = genesisBlock['nonce'] === 100;
+	const correctPreviousBlockHash = genesisBlock['previousBlockHash'] === '0';
+	const correctHash = genesisBlock['hash'] === '0';
+	const correctTransactions = genesisBlock['transactions'].length === 0;
+
+	if (!correctNonce || !correctPreviousBlockHash || !correctHash || !correctTransactions) validChain = false;
+
+	return validChain;
+};
 
 
 // Blockchain.prototype.getBlock = function(blockHash) {
