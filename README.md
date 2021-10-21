@@ -53,11 +53,16 @@ You will notice that all nodes except 5 have data being synced. To add Node 5 to
 # Block Explorer
 
 There is a basic block explorer that will help you find elements from the blockchain
-<br>
+
+<img width="646" alt="Screenshot 2021-10-21 at 11 48 01 AM" src="[https://user-images.githubusercontent.com/7304486/138224643-fff37710-d152-4a2a-b6d5-9a3f83fd557b.png](https://user-images.githubusercontent.com/7304486/138224643-fff37710-d152-4a2a-b6d5-9a3f83fd557b.png)">
+<img width="971" alt="Screenshot 2021-10-21 at 11 47 57 AM" src="[https://user-images.githubusercontent.com/7304486/138224658-be5ddae2-47c3-4ee7-b9fa-a710bace2411.png](https://user-images.githubusercontent.com/7304486/138224658-be5ddae2-47c3-4ee7-b9fa-a710bace2411.png)">
+
 # Workign of the blockchain
 
 ## Registering Nodes
-<br>
+
+<img width="1135" alt="image" src="[https://user-images.githubusercontent.com/2339864/138227168-83d24652-efe1-4305-93e7-5384c9cce3ce.png](https://user-images.githubusercontent.com/2339864/138227168-83d24652-efe1-4305-93e7-5384c9cce3ce.png)">
+
 <br>
 ## Syncronising every new transaction
 <br>
